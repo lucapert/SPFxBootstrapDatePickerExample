@@ -1,0 +1,30 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "datepicker-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/datepicker/DatepickerWebPart.js",
+          "manifest": "./src/webparts/datepicker/DatepickerWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {
+    "jquery": {
+      "path": "https://code.jquery.com/jquery-3.3.1.min.js",
+      "globalName": "jQuery"
+    },
+    "bootstrap-datepicker": {
+      "path": "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js",
+      "globalName": "jQuery",
+      "globalDependencies": [
+        "jquery"
+      ]
+    }
+  },
+  "localizedResources": {
+    "DatepickerWebPartStrings": "lib/webparts/datepicker/loc/{locale}.js"
+  }
+}
