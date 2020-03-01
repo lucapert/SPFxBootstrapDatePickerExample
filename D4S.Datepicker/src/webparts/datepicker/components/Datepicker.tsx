@@ -9,8 +9,6 @@ import * as $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap-datepicker';
 
-
-
 export default class Datepicker extends React.Component < IDatepickerProps, {} > {
   
 componentDidMount(){
@@ -40,9 +38,7 @@ componentDidMount(){
         }
      return;
     }
-  });
-
-  
+  }); 
 }
 
   public render(): React.ReactElement<IDatepickerProps> {
