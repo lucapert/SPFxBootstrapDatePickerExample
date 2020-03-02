@@ -18,13 +18,13 @@ componentDidMount(){
   
   //default datepicker
   // (calendarComponent as any).datepicker({});
-
   //datepicker test   
   var active_dates = ["27/2/2015","21/5/2020"];
   (calendarComponent as any).datepicker({
     format: "dd/mm/yyyy",
     autoclose: true,
     todayHighlight: true,
+    
     beforeShowDay: function(date){
         var d = date;
         var curr_date = d.getDate();
@@ -39,11 +39,31 @@ componentDidMount(){
      return;
     }
   }); 
+  // Your CSS as text
+  var dinamicStyle = `
+  .datepicker table tr td.old,
+  .datepicker table tr td.new {
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+  `
+  var styleSheet = document.createElement("style")
+  styleSheet.type = "text/css"
+  styleSheet.innerText = dinamicStyle
+  document.head.appendChild(styleSheet)
+}
+
+public hideOldCalendarDates(){
+  let elements = document.querySelectorAll(".datepicker table tr td.old") as any as Array<HTMLElement>;
+    elements.forEach((elem) => {
+      elem.style.display = "none";
+    });
 }
 
   public render(): React.ReactElement<IDatepickerProps> {
     return(
-      <div className="input-group date">
+      <div className="input-group date" id="custom-datepicker">
         <input type="text" className={[styles.customFormControl, "form-control"].join(" ")} /><span className="input-group-addon"><Icon iconName="Calendar"/></span>
       </div>
     );
