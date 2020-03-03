@@ -26,7 +26,16 @@
     color: #d0d0d0;
     cursor: pointer;
   }
-  .activeClass{
-    background-color: #F00!important; 
-  }
 }
+.datepicker table tr td.new, .datepicker table tr td.old {
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+.activeClass{
+  background-color: #F00!important; 
+}
+
+// .bootstrap-datetimepicker-widget table tr td.new { display: none; }
+// .bootstrap-datetimepicker-widget table tr td.old { visibility: hidden; }
+
